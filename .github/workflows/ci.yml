@@ -2,6 +2,7 @@ on:
   pull_request:
     branches:
       - master
+  push:
 
 jobs:
   build_test_job:
@@ -25,7 +26,7 @@ jobs:
         npm run test
 
     - name : 'Run test coverage'
-      if: runner.os == 'Windows'
+      if: runner.os == 'Windows' && event_name == 'pull_request'
       env:
         PR_NUMBER: ${{ github.event.pull_request.number }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -68,3 +69,33 @@ jobs:
           "Authorization" = "token ${env:GITHUB_TOKEN}"
         }
         Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body "{ `"body`": `"${comment}`" }"
+
+  test_action_job:
+    name: 'Build and test job'
+    runs-on: ${{ matrix.os }}
+    needs: build_test_job
+    strategy:
+        matrix:
+          os: [windows-latest, ubuntu-latest, macos-latest]
+    steps:
+
+    - name: 'Checking out repo code'
+      uses: actions/checkout@v2
+
+    - name: 'Validate build'
+      run: |
+        npm install
+        npm run build
+    
+    - name: Test the local action
+      uses: ./ # Uses an action in the root directory
+      with:
+        files: 'src\Tests\Resources\test.json'
+      env:
+        SGML: "Value from workflow"
+
+    - name: Validate the test file
+      shell: pwsh
+      run: |
+        $test_file = Get-Content -Path src\Tests\Resources\test.json -Raw
+        Write-Host $test_file
