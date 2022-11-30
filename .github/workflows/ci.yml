@@ -16,6 +16,10 @@ jobs:
     - name: 'Checking out repo code'
       uses: actions/checkout@v3
 
+    - name: cleanup node_modules
+      run: |
+        rm -rf node_modules
+
     - uses: actions/setup-node@v3
       with:
         node-version: 18
