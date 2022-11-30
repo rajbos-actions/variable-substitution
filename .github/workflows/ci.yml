@@ -92,11 +92,6 @@ jobs:
 
     - name: 'Checking out repo code'
       uses: actions/checkout@v3
-
-    - name: 'Validate build'
-      run: |
-        npm install
-        npm run build
     
     - name: Test the local action
       uses: ./ # Uses an action in the root directory
