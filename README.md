@@ -2,9 +2,13 @@
 
 This Action is deprecated. The action keeps working even after archiving this repo. So __existing workflows are not impacted and new workflows also work fine__. Any further enhancement or support is not planned for this action.
 
+![OpenSSF Scorecard]
+(https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution/badge)]
+(https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution)
+
 # GitHub Action for substituting variables in parameterized files ![.github/workflows/ci.yml](https://github.com/microsoft/variable-substitution/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
 
-With the Variable Substitution Action for GitHub, you can apply variable substitution to XML, JSON and YAML based configuration and parameter files.
+With the Variable Substitution Action for GitHub, you can apply variable substitution to XML, JSON ,and YAML based configuration and parameter files.
 
 -	Tokens defined in the target configuration files are updated and then replaced with variable values.
 -	Variable substitution is applied for only the JSON keys predefined in the object hierarchy. It does not create new keys.
