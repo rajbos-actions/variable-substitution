@@ -93,7 +93,8 @@ jobs:
         files: './src/Tests/Resources/test.json'
       env:
         ID: "Value from workflow"
-        glossary.title.GlossDiv.title.GlossList.GlossEntry.ID: "Value from workflow"
+        glossary.GlossDiv.GlossList.GlossEntry.ID: "Value from workflow"
+        glossary.title: "Fake title"
 
     - name: Validate the test file
       shell: pwsh
