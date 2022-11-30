@@ -2,7 +2,7 @@
 
 This Action is deprecated. The action keeps working even after archiving this repo. So __existing workflows are not impacted and new workflows also work fine__. Any further enhancement or support is not planned for this action.
 
-![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution/badge)](https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution)
+[![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution/badge)](https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution)
 
 # GitHub Action for substituting variables in parameterized files ![.github/workflows/ci.yml](https://github.com/microsoft/variable-substitution/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
 
