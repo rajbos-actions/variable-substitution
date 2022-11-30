@@ -2,6 +2,7 @@ on:
   pull_request:
     branches:
       - master
+  push:
 
 jobs:
   build_test_job:
@@ -13,7 +14,18 @@ jobs:
     steps:
 
     - name: 'Checking out repo code'
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
+
+    - name: cleanup node_modules
+      shell: pwsh
+      run: |
+        if (Test-Path -Path node_modules) {
+          Remove-Item -Path node_modules -Recurse -Force
+        }
+
+    - uses: actions/setup-node@v3
+      with:
+        node-version: 18
 
     - name: 'Validate build'
       run: |
@@ -25,7 +37,7 @@ jobs:
         npm run test
 
     - name : 'Run test coverage'
-      if: runner.os == 'Windows'
+      if: runner.os == 'Windows' && github.event_name == 'pull_request'
       env:
         PR_NUMBER: ${{ github.event.pull_request.number }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -68,3 +80,30 @@ jobs:
           "Authorization" = "token ${env:GITHUB_TOKEN}"
         }
         Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body "{ `"body`": `"${comment}`" }"
+
+  test_action_job:
+    name: 'Execute the local action'
+    runs-on: ${{ matrix.os }}
+    needs: build_test_job
+    strategy:
+        matrix:
+          os: [windows-latest, ubuntu-latest, macos-latest]
+    steps:
+
+    - name: 'Checking out repo code'
+      uses: actions/checkout@v3
+    
+    - name: Test the local action
+      uses: ./ # Uses an action in the root directory
+      with:
+        files: './src/Tests/Resources/test.json'
+      env:
+        ID: "Value from workflow"
+        glossary.GlossDiv.GlossList.GlossEntry.ID: "Value from workflow"
+        glossary.title: "Fake title"
+
+    - name: Validate the test file
+      shell: pwsh
+      run: |
+        $test_file = Get-Content -Path src\Tests\Resources\test.json -Raw
+        Write-Host $test_file
