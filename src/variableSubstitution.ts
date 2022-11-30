@@ -33,7 +33,7 @@ export class VariableSubstitution {
             for(let file of matchedFiles) {
                 let fileBuffer: Buffer = fs.readFileSync(file);
                 let fileEncodeType = fileEncoding.detectFileEncoding(file, fileBuffer);
-                let fileContent: string = fileBuffer.toString(fileEncodeType.encoding);
+                let fileContent: string = fileBuffer.toString();
                 if(fileEncodeType.withBOM) {
                     fileContent = fileContent.slice(1);
                 }
@@ -43,7 +43,7 @@ export class VariableSubstitution {
                     let jsonObject = this.fileContentCache.get(file);
                     let isJsonSubstitutionApplied = jsonSubsitution.substituteJsonVariable(jsonObject, EnvTreeUtility.getEnvVarTree());
                     if(isJsonSubstitutionApplied) {
-                        fs.writeFileSync(file, (fileEncodeType.withBOM ? '\uFEFF' : '') + JSON.stringify(jsonObject, null, 4), { encoding: fileEncodeType.encoding });
+                        fs.writeFileSync(file, (fileEncodeType.withBOM ? '\uFEFF' : '') + JSON.stringify(jsonObject, null, 4));
                         console.log(`Successfully updated file: ${file}`);
                     }
                     else {
@@ -64,7 +64,7 @@ export class VariableSubstitution {
                             core.debug('Substituting original value in place of temp_name: ' + replacableTokenValue);
                             domContent = domContent.split(replacableTokenValue).join(xmlSubstitution.replacableTokenValues[replacableTokenValue]);
                         }
-                        fs.writeFileSync(file, domContent, { encoding: fileEncodeType.encoding });
+                        fs.writeFileSync(file, domContent);
                         console.log(`Successfully updated file: ${file}`);
                     }
                     else {
@@ -78,7 +78,7 @@ export class VariableSubstitution {
                     let yamlObject = this.fileContentCache.get(file);
                     let isYamlSubstitutionApplied = jsonSubsitution.substituteJsonVariable(yamlObject, EnvTreeUtility.getEnvVarTree());
                     if(isYamlSubstitutionApplied) {
-                        fs.writeFileSync(file, (fileEncodeType.withBOM ? '\uFEFF' : '') + yaml.safeDump(yamlObject), { encoding: fileEncodeType.encoding });
+                        fs.writeFileSync(file, (fileEncodeType.withBOM ? '\uFEFF' : '') + yaml.safeDump(yamlObject));
                         console.log(`Successfully updated config file: ${file}`);
                     }
                     else {
