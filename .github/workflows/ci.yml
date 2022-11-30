@@ -71,7 +71,7 @@ jobs:
         Invoke-RestMethod -Method POST -Uri $url -Headers $headers -Body "{ `"body`": `"${comment}`" }"
 
   test_action_job:
-    name: 'Build and test job'
+    name: 'Execute the local action'
     runs-on: ${{ matrix.os }}
     needs: build_test_job
     strategy:
@@ -90,7 +90,7 @@ jobs:
     - name: Test the local action
       uses: ./ # Uses an action in the root directory
       with:
-        files: 'src\Tests\Resources\test.json'
+        files: './src/Tests/Resources/test.json'
       env:
         SGML: "Value from workflow"
 
