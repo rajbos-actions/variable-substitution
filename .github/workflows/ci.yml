@@ -14,7 +14,7 @@ jobs:
     steps:
 
     - name: 'Checking out repo code'
-      uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
+      uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
 
     - name: cleanup node_modules
       shell: pwsh
@@ -91,7 +91,7 @@ jobs:
     steps:
 
     - name: 'Checking out repo code'
-      uses: actions/checkout@93ea575cb5d8a053eaa0ac8fa3b40d7e05a33cc8 # v3.1.0
+      uses: actions/checkout@ac593985615ec2ede58e132d2e21d2b1cbd6127c # v3.3.0
     
     - name: Test the local action
       uses: ./ # Uses an action in the root directory
