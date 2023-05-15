@@ -7,6 +7,8 @@ on:
 jobs:
   build_test_job:
     name: 'Build and test job'
+    permissions:
+      issues: write
     runs-on: ${{ matrix.os }}
     strategy:
         matrix:
