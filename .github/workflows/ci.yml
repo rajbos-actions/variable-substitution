@@ -9,6 +9,7 @@ jobs:
     name: 'Build and test job'
     permissions:
       issues: write
+      pull-requests: write
     runs-on: ${{ matrix.os }}
     strategy:
         matrix:
