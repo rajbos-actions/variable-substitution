@@ -1,9 +1,9 @@
-# Temporary fork (I hope)
-This is a fork from [github.com/microsoft/variable-substitution](https://github.com/microsoft/variable-substitution), so that I could fix the 'node12 is being deprecated' warning.
+# Forked from original (upstream has been archived)
+This is a fork from [github.com/microsoft/variable-substitution](https://github.com/microsoft/variable-substitution), so that I could fix the 'node12 is being deprecated' warning. I'm kepping the dependencies up to date as well.
 
 OpenSSF Scorecard setup for this repo: [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution/badge)](https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution)
 
-# GitHub Action for substituting variables in parameterized files ![.github/workflows/ci.yml](https://github.com/rajbos-actions/variable-substitution/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
+# GitHub Action for substituting variables in parameterized files ![.github/workflows/ci.yml](https://github.com/devops-actions/variable-substitution/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
 
 With the Variable Substitution Action for GitHub, you can apply variable substitution to XML, JSON ,and YAML based configuration and parameter files.
 
