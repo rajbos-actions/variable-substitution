@@ -44,10 +44,8 @@ jobs:
       env:
         PR_NUMBER: ${{ github.event.pull_request.number }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      shell: pwsh        
+      shell: pwsh # help actionlinter to distinguish the correct shell being used
       run: |
-        #declaring parameters just works in pwsh, which is the default shell on a Windows runner ;-)
-        # shellcheck disable=SC1065
         $coverage_result = npm run coverage
         $start = $false;
         $middle = $false; 
