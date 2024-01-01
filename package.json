@@ -26,7 +26,7 @@
     "@types/chai": "^4.3.9",
     "@types/minimatch": "^5.1.2",
     "@types/mocha": "^10.0.6",
-    "@types/node": "^20.10.1",
+    "@types/node": "^20.10.6",
     "chai": "^5.0.0",
     "mocha": "^10.2.0",
     "nyc": "^15.1.0",
