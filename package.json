@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/SumiranAgg/filetransform#readme",
   "devDependencies": {
-    "@types/chai": "^4.3.9",
+    "@types/chai": "^4.3.14",
     "@types/minimatch": "^5.1.2",
     "@types/mocha": "^10.0.6",
     "@types/node": "^20.12.2",
