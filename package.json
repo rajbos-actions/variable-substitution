@@ -23,21 +23,21 @@
   },
   "homepage": "https://github.com/SumiranAgg/filetransform#readme",
   "devDependencies": {
-    "@types/chai": "^4.3.16",
+    "@types/chai": "^4.3.17",
     "@types/minimatch": "^5.1.2",
     "@types/mocha": "^10.0.7",
-    "@types/node": "^20.14.9",
+    "@types/node": "^22.0.2",
     "chai": "^5.1.1",
-    "mocha": "^10.5.2",
+    "mocha": "^10.7.0",
     "nyc": "^17.0.0",
     "sinon": "^18.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.4"
   },
   "dependencies": {
     "@actions/core": "^1.10.1",
     "js-yaml": "^4.1.0",
     "ltx": "^3.0.0",
-    "minimatch": "^9.0.5"
+    "minimatch": "^10.0.1"
   }
 }
