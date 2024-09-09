@@ -1,7 +1,7 @@
 # Forked from original (upstream has been archived)
 This is a fork from [github.com/microsoft/variable-substitution](https://github.com/microsoft/variable-substitution), so that I could fix the 'node12 is being deprecated' warning. I'm kepping the dependencies up to date as well.
 
-OpenSSF Scorecard setup for this repo: [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution/badge)](https://api.securityscorecards.dev/projects/github.com/rajbos-actions/variable-substitution)
+OpenSSF Scorecard setup for this repo: [![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/devops-actions/variable-substitution/badge)](https://api.securityscorecards.dev/projects/github.com/devops-actions/variable-substitution)
 
 # GitHub Action for substituting variables in parameterized files ![.github/workflows/ci.yml](https://github.com/devops-actions/variable-substitution/workflows/.github/workflows/ci.yml/badge.svg?branch=master)
 
@@ -34,7 +34,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: microsoft/variable-substitution@v1 
+    - uses: devops-actions/variable-substitution@v1 
       with:
         files: 'Application/*.json, Application/*.yaml, ./Application/SampleWebApplication/We*.config'
       env:
