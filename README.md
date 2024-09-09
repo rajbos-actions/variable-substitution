@@ -34,7 +34,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - uses: devops-actions/variable-substitution@v1 
+    - uses: devops-actions/variable-substitution@v1.2
       with:
         files: 'Application/*.json, Application/*.yaml, ./Application/SampleWebApplication/We*.config'
       env:
